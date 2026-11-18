@@ -1,0 +1,22 @@
+.passenger-ticket-card { display: grid; gap: 14px; padding: 16px; border: 1px solid #dce8dc; border-radius: 9px; background: #fbfcf8; }
+.ticket-card-header { display: flex; align-items: start; justify-content: space-between; gap: 12px; padding-bottom: 11px; border-bottom: 1px solid #e5ece2; }
+.ticket-card-header .eyebrow { margin: 0 0 4px; color: #728477; font-size: 8px; }
+.ticket-card-header h3 { margin: 0; color: #2c4937; font: 700 17px Manrope,sans-serif; letter-spacing: -.03em; }
+.ticket-card-header small { display: block; margin-top: 3px; color: #7c887e; font-size: 8px; }
+.ticket-status { padding: 5px 8px; border-radius: 99px; color: #28714d; background: #e7f3e7; font-size: 8px; font-weight: 800; text-transform: uppercase; }
+.ticket-status-used { color: #7a6541; background: #f5eedc; }
+.ticket-status-expired,.ticket-status-cancelled { color: #8c4439; background: #fae8e3; }
+.ticket-card-main { display: grid; grid-template-columns: 135px 1fr; gap: 14px; align-items: start; }
+.ticket-card-details { display: grid; gap: 5px; min-width: 0; color: #34483a; }
+.ticket-route-label { margin: 0; color: #6d7c70; font-size: 8px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase; }
+.ticket-card-details>strong { color: #2f684a; font: 700 12px Manrope,sans-serif; line-height: 1.45; }
+.ticket-journey { display: flex; flex-wrap: wrap; gap: 5px; align-items: center; margin: 5px 0; color: #405245; font-size: 8px; font-weight: 700; line-height: 1.45; }
+.ticket-journey i { color: #7c9681; font-style: normal; }
+.ticket-fare-items { display: grid; gap: 4px; margin: 0; padding: 7px 0; border-top: 1px solid #e5ece2; list-style: none; }
+.ticket-fare-items li { display: flex; justify-content: space-between; gap: 7px; color: #68766b; font-size: 8px; }
+.ticket-fare-items b { flex: 0 0 auto; color: #405245; }
+.ticket-total { display: flex; justify-content: space-between; gap: 8px; padding-top: 5px; border-top: 1px solid #e5ece2; color: #526255; font-size: 9px; }
+.ticket-total strong { color: #276a4a; font-size: 13px; }
+.ticket-payment-note,.ticket-privacy-note { margin: 2px 0 0; color: #7c877e; font-size: 8px; line-height: 1.5; }
+.ticket-privacy-note { padding-top: 10px; border-top: 1px solid #e5ece2; }
+@media (max-width: 440px) { .ticket-card-main { grid-template-columns: 1fr; } }

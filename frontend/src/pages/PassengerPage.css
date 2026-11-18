@@ -1,0 +1,84 @@
+.auth-card { width: min(520px, 100%); }
+.auth-card .portal-description { margin-bottom: 19px; }
+.auth-switch { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; margin: 0 0 21px; padding: 4px; border: 1px solid #e3e9e1; border-radius: 8px; background: #f4f6f1; }
+.auth-switch button { min-height: 36px; border: 0; border-radius: 5px; color: #728077; background: transparent; font: 600 11px 'Segoe UI', Arial, sans-serif; cursor: pointer; }
+.auth-switch button.selected { color: #175c46; background: #fffefa; box-shadow: 0 1px 4px #17221e15; }
+.auth-form { display: grid; gap: 14px; }
+.auth-form label { display: grid; gap: 7px; color: #34443a; font-size: 10px; font-weight: 700; }
+.auth-form input { width: 100%; min-height: 43px; padding: 0 12px; border: 1px solid #dfe5df; border-radius: 6px; outline: none; color: #17221e; background: #fff; font: 12px 'Segoe UI', Arial, sans-serif; }
+.auth-form input:focus { border-color: #5b9f7b; box-shadow: 0 0 0 3px #5b9f7b24; }
+.auth-hint { margin: -2px 0 0; color: #818b84; font-size: 9px; line-height: 1.6; }
+.auth-message { margin: 0; padding: 10px 11px; border: 1px solid; border-radius: 6px; font-size: 10px; line-height: 1.55; }
+.auth-message.error { border-color: #f1d2cb; color: #963e33; background: #fff5f2; }
+.auth-message.success { border-color: #cce3d0; color: #246849; background: #f0f8f1; }
+.auth-submit { width: 100%; cursor: pointer; }
+.auth-submit:disabled { cursor: wait; opacity: .7; }
+.pass-verified { background: #4caa78; box-shadow: 0 0 0 4px #dceddf; }
+.student-pass-panel { display: grid; grid-template-columns: minmax(0,1fr) auto; gap: 12px; align-items: center; margin: 18px 0; padding: 15px; border: 1px solid #d8e8d7; border-radius: 9px; background: #f4f8f1; }
+.student-pass-panel .eyebrow { margin: 0 0 5px; color: #728477; font-size: 8px; }
+.student-pass-panel h2 { margin: 0; color: #2e4035; font-size: 16px; letter-spacing: -.03em; }
+.student-pass-route { margin: 8px 0 3px; color: #276a4a; font-size: 11px; font-weight: 800; }
+.student-pass-validity { margin: 0; color: #78857b; font-size: 8px; line-height: 1.5; }
+.student-pass-panel .ticket-qr { width: 150px; }
+.student-pass-panel .ticket-qr img { width: 112px; }
+@media(max-width:560px) { .student-pass-panel { grid-template-columns: 1fr; } .student-pass-panel .ticket-qr { justify-self: center; } }
+.boarding-panel { display: grid; gap: 10px; margin: 22px 0; padding: 17px; border: 1px solid #e2e9df; border-radius: 9px; background: #fbfcf8; }
+.boarding-panel>.eyebrow { margin: 0; font-size: 8px; }
+.boarding-panel h2 { margin: 0; color: #2e4035; font-size: 20px; letter-spacing: -.04em; }
+.boarding-description { margin: -3px 0 3px; color: #7a867e; font-size: 10px; line-height: 1.65; }
+.boarding-result { display: grid; gap: 12px; margin-top: 4px; padding: 14px; border: 1px solid #d8e8d7; border-radius: 7px; background: #f4f8f1; }
+.boarding-result-status { display: inline-flex; align-items: center; gap: 7px; color: #28714d; font-size: 9px; font-weight: 700; }
+.boarding-result-status i { width: 7px; height: 7px; border-radius: 50%; background: #54ad75; box-shadow: 0 0 0 3px #e0f0e2; }
+.boarding-result-bus,.boarding-result-route,.boarding-stop { display: grid; gap: 5px; }
+.boarding-result-bus span,.boarding-result-route span,.boarding-stop>span { color: #8a958c; font-size: 7px; font-weight: 800; letter-spacing: .1em; }
+.boarding-result-bus strong { color: #334438; font-size: 13px; }
+.boarding-result-route { padding: 10px 0; border-block: 1px solid #e4ece1; }
+.boarding-result-route strong,.boarding-stop strong { color: #2f684a; font: 700 12px Manrope,sans-serif; line-height: 1.45; }
+.boarding-result-route small,.boarding-stop small { color: #7d897f; font-size: 9px; line-height: 1.55; }
+.boarding-next-phase { margin: 0; color: #8a958c; font-size: 8px; line-height: 1.55; }
+.boarding-no-trip { border-color: #e8e3d6; background: #faf8f1; }
+.boarding-no-trip p { margin: 0; color: #7d786b; font-size: 9px; line-height: 1.6; }
+.boarding-panel>.auth-message { margin: 0; }
+.fare-estimate-panel { display: grid; gap: 11px; margin-top: 5px; padding-top: 14px; border-top: 1px solid #e2e9df; }
+.fare-estimate-panel .eyebrow { margin: 0 0 3px; color: #728477; font-size: 8px; }
+.fare-estimate-panel h3 { margin: 0; color: #2e4035; font: 700 16px Manrope,sans-serif; letter-spacing: -.03em; }
+.fare-estimate-description { margin: 5px 0 0; color: #7a867e; font-size: 9px; line-height: 1.55; }
+.fare-destination-field { display: grid; gap: 6px; color: #34443a; font-size: 9px; font-weight: 700; }
+.fare-destination-field select { width: 100%; min-height: 39px; padding: 0 9px; border: 1px solid #dfe5df; border-radius: 6px; color: #263a2f; background: #fff; font: 10px 'Segoe UI',Arial,sans-serif; }
+.fare-destination-field select:focus,.fare-count-row input:focus { border-color: #5b9f7b; outline: none; box-shadow: 0 0 0 3px #5b9f7b24; }
+.fare-passenger-counts { display: grid; gap: 5px; margin: 0; padding: 9px 10px 8px; border: 1px solid #e2e9df; border-radius: 6px; }
+.fare-passenger-counts legend { padding: 0 4px; color: #34443a; font-size: 9px; font-weight: 700; }
+.fare-count-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: #57665c; font-size: 9px; }
+.fare-count-row input { width: 68px; min-height: 31px; padding: 0 7px; border: 1px solid #dfe5df; border-radius: 5px; color: #263a2f; background: #fff; font: 11px 'Segoe UI',Arial,sans-serif; }
+.fare-pass-note { margin: 0; color: #7c877e; font-size: 8px; line-height: 1.55; }
+.fare-quote-button { width: 100%; min-height: 39px; }
+.fare-quote-result { display: grid; gap: 9px; padding: 12px; border: 1px solid #d8e8d7; border-radius: 7px; background: #f4f8f1; }
+.fare-quote-heading { display: flex; align-items: end; justify-content: space-between; gap: 10px; }
+.fare-quote-heading>div { display: grid; gap: 3px; }
+.fare-quote-heading span { color: #728477; font-size: 7px; font-weight: 800; letter-spacing: .1em; }
+.fare-quote-heading strong { color: #276a4a; font: 700 22px Manrope,sans-serif; letter-spacing: -.04em; }
+.fare-quote-heading small { color: #768378; font-size: 8px; text-align: right; }
+.fare-quote-journey { margin: 0; padding: 8px 0; border-block: 1px solid #e2ebe0; color: #35483a; font-size: 9px; font-weight: 700; line-height: 1.5; }
+.fare-quote-journey span { padding: 0 5px; color: #7c9681; }
+.fare-quote-lines { display: grid; gap: 7px; margin: 0; padding: 0; list-style: none; }
+.fare-quote-lines li { display: flex; align-items: center; justify-content: space-between; gap: 10px; color: #35483a; font-size: 9px; }
+.fare-quote-lines li>span { display: grid; gap: 2px; }
+.fare-quote-lines li strong { font-size: 9px; }
+.fare-quote-lines li small { color: #7c877e; font-size: 8px; }
+.fare-quote-lines li b { flex: 0 0 auto; font-size: 9px; }
+.fare-quote-source { margin: 0; color: #7b877d; font-size: 8px; line-height: 1.5; }
+.ticket-create-note { margin: 0; color: #7b877d; font-size: 8px; line-height: 1.5; }
+.ticket-history { display: grid; gap: 12px; margin: 20px 0; padding: 15px; border: 1px solid #e2e9df; border-radius: 9px; background: #fbfcf8; }
+.ticket-history-heading { display: flex; justify-content: space-between; align-items: end; gap: 10px; padding-bottom: 10px; border-bottom: 1px solid #e5ece2; }
+.ticket-history-heading .eyebrow { margin: 0 0 3px; color: #728477; font-size: 8px; }
+.ticket-history-heading h2 { margin: 0; color: #2e4035; font: 700 18px Manrope,sans-serif; letter-spacing: -.03em; }
+.ticket-history-heading>span { color: #79867c; font-size: 8px; }
+.ticket-history-empty { margin: 0; color: #7c877e; font-size: 9px; line-height: 1.6; }
+.ticket-history-content { display: grid; gap: 12px; }
+.ticket-history-list { display: grid; gap: 6px; }
+.ticket-history-item { display: flex; align-items: center; justify-content: space-between; gap: 10px; width: 100%; min-height: 44px; padding: 7px 9px; border: 1px solid #e4e9e1; border-radius: 6px; color: #415345; background: #fff; text-align: left; cursor: pointer; }
+.ticket-history-item.selected { border-color: #8cb89a; background: #f2f7f0; }
+.ticket-history-item>span { display: grid; gap: 3px; min-width: 0; }
+.ticket-history-item strong { color: #2f684a; font-size: 9px; }
+.ticket-history-item small { overflow: hidden; color: #77847a; font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
+.ticket-history-item>b { flex: 0 0 auto; color: #34483a; font-size: 9px; }

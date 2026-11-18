@@ -1,0 +1,14 @@
+{
+  "notice": "Synthetic conductor and assignment records for local development only.",
+  "conductors": [
+    {
+      "employeeNumber": "DEMO-CON-001",
+      "fullName": "Demo Conductor",
+      "email": "conductor@example.test",
+      "busRegistrationNumber": "TEST-BUS-001",
+      "tripCode": "DEMO-TRIP-001",
+      "routeCode": "1000",
+      "direction": "Outbound"
+    }
+  ]
+}

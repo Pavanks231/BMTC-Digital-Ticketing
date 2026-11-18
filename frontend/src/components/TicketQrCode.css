@@ -1,0 +1,5 @@
+.ticket-qr { display: grid; justify-items: center; gap: 5px; margin: 0; padding: 8px; border: 1px solid #e2e9df; border-radius: 7px; background: #fff; }
+.ticket-qr img { display: block; width: min(100%, 118px); height: auto; image-rendering: pixelated; }
+.ticket-qr a { color: #276a4a; font-size: 8px; font-weight: 700; text-decoration: none; }
+.ticket-qr figcaption,.ticket-qr-placeholder { color: #77847a; font-size: 7px; line-height: 1.4; text-align: center; }
+@media (max-width: 440px) { .ticket-qr { width: min(100%, 185px); justify-self: center; } .ticket-qr img { width: 145px; } }

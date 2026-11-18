@@ -1,0 +1,205 @@
+{
+  "notice": "Synthetic test records only. These are not real students or official BMTC passes.",
+  "students": [
+    {
+      "fullName": "Demo Student 001",
+      "email": "student001@example.test",
+      "passNumber": "DEMO-PASS-2026-001",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 002",
+      "email": "student002@example.test",
+      "passNumber": "DEMO-PASS-2026-002",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 003",
+      "email": "student003@example.test",
+      "passNumber": "DEMO-PASS-2026-003",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 004",
+      "email": "student004@example.test",
+      "passNumber": "DEMO-PASS-2026-004",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 005",
+      "email": "student005@example.test",
+      "passNumber": "DEMO-PASS-2026-005",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 006",
+      "email": "student006@example.test",
+      "passNumber": "DEMO-PASS-2026-006",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 007",
+      "email": "student007@example.test",
+      "passNumber": "DEMO-PASS-2026-007",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 008",
+      "email": "student008@example.test",
+      "passNumber": "DEMO-PASS-2026-008",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 009",
+      "email": "student009@example.test",
+      "passNumber": "DEMO-PASS-2026-009",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 010",
+      "email": "student010@example.test",
+      "passNumber": "DEMO-PASS-2026-010",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 011",
+      "email": "student011@example.test",
+      "passNumber": "DEMO-PASS-2026-011",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 012",
+      "email": "student012@example.test",
+      "passNumber": "DEMO-PASS-2026-012",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 013",
+      "email": "student013@example.test",
+      "passNumber": "DEMO-PASS-2026-013",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 014",
+      "email": "student014@example.test",
+      "passNumber": "DEMO-PASS-2026-014",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 015",
+      "email": "student015@example.test",
+      "passNumber": "DEMO-PASS-2026-015",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 016",
+      "email": "student016@example.test",
+      "passNumber": "DEMO-PASS-2026-016",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 017",
+      "email": "student017@example.test",
+      "passNumber": "DEMO-PASS-2026-017",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 018",
+      "email": "student018@example.test",
+      "passNumber": "DEMO-PASS-2026-018",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 019",
+      "email": "student019@example.test",
+      "passNumber": "DEMO-PASS-2026-019",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    },
+    {
+      "fullName": "Demo Student 020",
+      "email": "student020@example.test",
+      "passNumber": "DEMO-PASS-2026-020",
+      "institutionName": "Sample Institute",
+      "validFrom": "2026-06-01",
+      "validUntil": "2027-05-31",
+      "status": "verified",
+      "verificationSource": "demo_seed"
+    }
+  ]
+}
