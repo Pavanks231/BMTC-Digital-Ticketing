@@ -1,0 +1,8 @@
+{
+  "appId": "com.example.bmtcdigitalticketing",
+  "appName": "BMTC Digital Ticketing",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https"
+  }
+}

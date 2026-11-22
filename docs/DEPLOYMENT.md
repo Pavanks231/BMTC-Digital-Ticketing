@@ -39,6 +39,8 @@ This project includes a root `Dockerfile` that builds the React frontend and ser
 
    ```text
    NODE_ENV=production
+   CORS_ALLOWED_ORIGINS=https://localhost
+   COOKIE_SAME_SITE=none
    DB_HOST=${{MySQL.MYSQLHOST}}
    DB_PORT=${{MySQL.MYSQLPORT}}
    DB_USER=${{MySQL.MYSQLUSER}}
@@ -52,6 +54,25 @@ This project includes a root `Dockerfile` that builds the React frontend and ser
    Replace `MySQL` with the exact name of your Railway database service. Use Railway's reference-variable picker where possible. The container runs `db:setup` before starting the app; this creates/updates the schema and inserts the fictional sample data. It reapplies the demo account passwords from the variables above whenever the container starts.
 
 5. Deploy the services. In the web service, open **Settings → Networking → Generate Domain**. Share the generated HTTPS domain once `/api/health` reports `ok`.
+
+6. Copy the generated HTTPS domain (for example, `https://your-service.up.railway.app`) into the web service variable `FRONTEND_ORIGIN`, then redeploy. This allows the hosted website origin while `CORS_ALLOWED_ORIGINS=https://localhost` allows the bundled Android app. Keep `COOKIE_SAME_SITE=none`; production cookies are Secure and the Android WebView accepts the cross-site API cookies needed by this app.
+
+## Build the Android app for the hosted API
+
+After the hosted `/api/health` endpoint reports `ok`, create `frontend/.env.production.local` with the service URL:
+
+```text
+VITE_API_BASE_URL=https://your-service.up.railway.app/api
+```
+
+Replace the example domain with the one Railway generated. This local environment file is ignored by Git. From PowerShell, run:
+
+```powershell
+cd "D:\Mini Project\BMTC-Digital-Ticketing\frontend"
+npm.cmd run android:sync
+```
+
+Then build the debug APK in Android Studio, or run `assembleDebug` with a JDK 21 Gradle runtime. The APK will be at `frontend/android/app/build/outputs/apk/debug/app-debug.apk`. Install that rebuilt APK on the phone and verify passenger and conductor sign-in. The Capacitor Android origin is explicitly `https://localhost`; if that origin is changed in `capacitor.config.json`, update `CORS_ALLOWED_ORIGINS` to match and redeploy.
 
 Railway's current pricing includes a limited free trial/usage allowance and paid usage plans; it is not safe to assume a permanent, unlimited free service. The Hobby plan is listed at a $5 monthly minimum usage commitment, with extra usage billed beyond the included amount. Check the current [Railway pricing](https://railway.com/pricing) before deploying.
 

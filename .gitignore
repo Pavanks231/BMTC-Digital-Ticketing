@@ -6,3 +6,9 @@ dist/
 coverage/
 .DS_Store
 Thumbs.db
+frontend/android/.gradle/
+frontend/android/**/build/
+frontend/android/local.properties
+frontend/android/.idea/
+frontend/android/app/src/main/assets/public/
+frontend/android/app/src/main/assets/capacitor.plugins.json

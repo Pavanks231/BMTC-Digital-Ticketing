@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { sessionCookieOptions } from '../config/sessionCookie.js';
 import {
   createPassenger,
   findPassengerByEmail,
@@ -17,13 +18,7 @@ function setSessionCookie(res, passengerId) {
     { subject: String(passengerId), expiresIn: process.env.JWT_EXPIRES_IN || '12h' },
   );
 
-  res.cookie(COOKIE_NAME, token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    maxAge: SESSION_MAX_AGE_MS,
-    path: '/api',
-  });
+  res.cookie(COOKIE_NAME, token, sessionCookieOptions('/api', SESSION_MAX_AGE_MS));
 }
 
 export async function registerPassenger(req, res, next) {
@@ -75,7 +70,7 @@ export async function getCurrentPassenger(req, res, next) {
   try {
     const passenger = await findPublicPassengerById(req.auth.passengerId);
     if (!passenger) {
-      res.clearCookie(COOKIE_NAME, { path: '/api', sameSite: 'lax', httpOnly: true });
+      res.clearCookie(COOKIE_NAME, sessionCookieOptions('/api'));
       return res.status(401).json({ message: 'This account is no longer active.' });
     }
     return res.json({ passenger });
@@ -85,11 +80,6 @@ export async function getCurrentPassenger(req, res, next) {
 }
 
 export function logoutPassenger(req, res) {
-  res.clearCookie(COOKIE_NAME, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    path: '/api',
-  });
+  res.clearCookie(COOKIE_NAME, sessionCookieOptions('/api'));
   return res.status(204).end();
 }

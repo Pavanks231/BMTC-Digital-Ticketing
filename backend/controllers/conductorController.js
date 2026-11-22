@@ -1,5 +1,6 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
+import { sessionCookieOptions } from '../config/sessionCookie.js';
 import {
   findConductorByEmail,
   findConductorDashboard,
@@ -10,14 +11,6 @@ import { normalizeStopUpdate } from '../validators/conductorValidation.js';
 
 const COOKIE_NAME = 'bmtc_conductor_session';
 const SESSION_MAX_AGE_MS = 12 * 60 * 60 * 1000;
-const cookieOptions = {
-  httpOnly: true,
-  secure: process.env.NODE_ENV === 'production',
-  sameSite: 'lax',
-  maxAge: SESSION_MAX_AGE_MS,
-  path: '/api/conductor',
-};
-
 export async function loginConductor(req, res, next) {
   const { value, errors } = normalizeLogin(req.body);
   if (errors.length) return res.status(400).json({ message: errors[0], errors });
@@ -37,7 +30,7 @@ export async function loginConductor(req, res, next) {
       process.env.JWT_SECRET,
       { subject: String(conductor.conductor_id), expiresIn: process.env.JWT_EXPIRES_IN || '12h' },
     );
-    res.cookie(COOKIE_NAME, token, cookieOptions);
+    res.cookie(COOKIE_NAME, token, sessionCookieOptions('/api/conductor', SESSION_MAX_AGE_MS));
     return res.json({ conductor: {
       id: Number(conductor.conductor_id),
       fullName: conductor.full_name,
@@ -49,12 +42,7 @@ export async function loginConductor(req, res, next) {
 }
 
 export function logoutConductor(req, res) {
-  res.clearCookie(COOKIE_NAME, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'lax',
-    path: '/api/conductor',
-  });
+  res.clearCookie(COOKIE_NAME, sessionCookieOptions('/api/conductor'));
   return res.status(204).end();
 }
 
@@ -62,12 +50,7 @@ export async function getConductorDashboard(req, res, next) {
   try {
     const dashboard = await findConductorDashboard(req.auth.conductorId);
     if (!dashboard) {
-      res.clearCookie(COOKIE_NAME, {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === 'production',
-        sameSite: 'lax',
-        path: '/api/conductor',
-      });
+      res.clearCookie(COOKIE_NAME, sessionCookieOptions('/api/conductor'));
       return res.status(401).json({ message: 'This conductor account is no longer active.' });
     }
     return res.json(dashboard);
