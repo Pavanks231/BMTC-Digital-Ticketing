@@ -49,11 +49,12 @@ This project includes a root `Dockerfile` that builds the React frontend and ser
    JWT_SECRET=<new random secret of at least 32 characters>
    DEMO_STUDENT_PASSWORD=<new demo password>
    DEMO_CONDUCTOR_PASSWORD=<new demo password>
+   SEED_DEMO_DATA_ON_START=true
    ```
 
-   Replace `MySQL` with the exact name of your Railway database service. Use Railway's reference-variable picker where possible. The container runs `db:setup` before starting the app; this creates/updates the schema and inserts the fictional sample data. It reapplies the demo account passwords from the variables above whenever the container starts.
+   Replace `MySQL` with the exact name of your Railway database service. Use Railway's reference-variable picker where possible. The container runs `db:migrate` before starting the app. `SEED_DEMO_DATA_ON_START` optionally runs the fictional sample-data seed during first setup.
 
-5. Deploy the services. In the web service, open **Settings → Networking → Generate Domain**. Share the generated HTTPS domain once `/api/health` reports `ok`.
+5. Deploy the services. On the initial deployment, `SEED_DEMO_DATA_ON_START=true` runs the fictional sample-data seed. After the first successful startup, set this variable to `false` (or remove it) and redeploy. Routine container starts then apply schema updates without reapplying demo passwords. Share the generated HTTPS domain once `/api/health` reports `ok`.
 
 6. Copy the generated HTTPS domain (for example, `https://your-service.up.railway.app`) into the web service variable `FRONTEND_ORIGIN`, then redeploy. This allows the hosted website origin while `CORS_ALLOWED_ORIGINS=https://localhost` allows the bundled Android app. Keep `COOKIE_SAME_SITE=none`; production cookies are Secure and the Android WebView accepts the cross-site API cookies needed by this app.
 
@@ -73,6 +74,14 @@ npm.cmd run android:sync
 ```
 
 Then build the debug APK in Android Studio, or run `assembleDebug` with a JDK 21 Gradle runtime. The APK will be at `frontend/android/app/build/outputs/apk/debug/app-debug.apk`. Install that rebuilt APK on the phone and verify passenger and conductor sign-in. The Capacitor Android origin is explicitly `https://localhost`; if that origin is changed in `capacitor.config.json`, update `CORS_ALLOWED_ORIGINS` to match and redeploy.
+
+## Routine database and app updates
+
+- The Railway MySQL service stores application records separately from the web-service container. Updating the web service should not require deleting or recreating the MySQL service.
+- Before a schema change, export or back up the database. Update `backend/database/schema.sql` for fresh databases and add an idempotent upgrade block to `backend/scripts/setupDatabase.js` for existing databases. `db:migrate` runs these schema updates before the server starts.
+- Use `db:seed` only when intentionally inserting or refreshing fictional demo data. It upserts the demo records and re-hashes demo account passwords; ordinary app restarts should leave `SEED_DEMO_DATA_ON_START` off.
+- For web/API changes, commit and push to the branch linked to Railway. Railway builds and deploys the new service version; check deployment logs and `/api/health` afterward.
+- For Android changes, set a higher `versionCode` and `versionName` in `frontend/android/app/build.gradle`, rebuild and sign a release APK, then publish the new APK as a GitHub Release. Existing installed copies do not update themselves.
 
 Railway's current pricing includes a limited free trial/usage allowance and paid usage plans; it is not safe to assume a permanent, unlimited free service. The Hobby plan is listed at a $5 monthly minimum usage commitment, with extra usage billed beyond the included amount. Check the current [Railway pricing](https://railway.com/pricing) before deploying.
 

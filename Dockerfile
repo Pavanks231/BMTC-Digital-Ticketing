@@ -17,4 +17,4 @@ COPY backend/ ./backend/
 COPY --from=frontend-build /app/frontend/dist ./frontend/dist
 
 EXPOSE 5000
-CMD ["sh", "-c", "npm --prefix backend run db:setup && npm --prefix backend run start"]
+CMD ["sh", "-c", "npm --prefix backend run db:migrate && if [ \"${SEED_DEMO_DATA_ON_START:-false}\" = \"true\" ]; then npm --prefix backend run db:seed; fi && exec npm --prefix backend run start"]

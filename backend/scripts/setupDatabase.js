@@ -135,7 +135,9 @@ try {
 }
 
 try {
-  await seedDatabase();
+  if (!process.argv.includes('--migrate-only')) {
+    await seedDatabase();
+  }
 } finally {
   await pool.end();
 }
